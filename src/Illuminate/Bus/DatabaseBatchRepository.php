@@ -77,7 +77,6 @@ class DatabaseBatchRepository implements PrunableBatchRepository
     public function find(string $batchId)
     {
         $batch = $this->connection->table($this->table)
-                            ->useWritePdo()
                             ->where('id', $batchId)
                             ->first();
 
@@ -185,7 +184,6 @@ class DatabaseBatchRepository implements PrunableBatchRepository
     {
         return $this->connection->transaction(function () use ($batchId, $callback) {
             $batch = $this->connection->table($this->table)->where('id', $batchId)
-                        ->lockForUpdate()
                         ->first();
 
             return is_null($batch) ? [] : tap($callback($batch), function ($values) use ($batchId) {
