@@ -1,6 +1,6 @@
 {
-    "name": "laravel/framework",
-    "description": "The Laravel Framework.",
+    "name": "hobsrkm/laravel-framework",
+    "description": "The Laravel Framework. Removed WriterPDO for batch and Update Lock for batch transaction",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "homepage": "https://laravel.com",
